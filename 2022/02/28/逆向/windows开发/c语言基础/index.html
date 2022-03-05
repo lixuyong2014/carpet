@@ -1,0 +1,1388 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>c语言基础 | Welcome</title><meta name="keywords" content="Reverse"><meta name="author" content="ZeanHike"><meta name="copyright" content="ZeanHike"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="GCC编译命令格式： gcc [-option1] …  g++ [-option1] …  l 命令、选项和源文件之间使用空格分隔 l 一行命令中可以有零个、一个或多个选项 l 文件名可以包含文件的绝对路径，也可以使用相对路径 l 如果命令中不包含输出可执行文件的文件名，可执行文件的文件名会自动生成一个默认名，Linux平台为a.out，Windows平台为a.exe  gcc、g++编译常用选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言基础">
+<meta property="og:url" content="http://example.com/2022/02/28/%E9%80%86%E5%90%91/windows%E5%BC%80%E5%8F%91/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="GCC编译命令格式： gcc [-option1] …  g++ [-option1] …  l 命令、选项和源文件之间使用空格分隔 l 一行命令中可以有零个、一个或多个选项 l 文件名可以包含文件的绝对路径，也可以使用相对路径 l 如果命令中不包含输出可执行文件的文件名，可执行文件的文件名会自动生成一个默认名，Linux平台为a.out，Windows平台为a.exe  gcc、g++编译常用选">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613076.jpg">
+<meta property="article:published_time" content="2022-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-05T08:19:40.671Z">
+<meta property="article:author" content="ZeanHike">
+<meta property="article:tag" content="Reverse">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613076.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203010921746.png"><link rel="canonical" href="http://example.com/2022/02/28/%E9%80%86%E5%90%91/windows%E5%BC%80%E5%8F%91/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c语言基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-05 16:19:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202202282243300.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613076.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Welcome</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">c语言基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-05T08:19:40.671Z" title="更新于 2022-03-05 16:19:40">2022-03-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="c语言基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><p>编译命令格式：</p>
+<p>gcc [-option1] … <filename></p>
+<p>g++ [-option1] … <filename></p>
+<p>l 命令、选项和源文件之间使用空格分隔</p>
+<p>l 一行命令中可以有零个、一个或多个选项</p>
+<p>l 文件名可以包含文件的绝对路径，也可以使用相对路径</p>
+<p>l 如果命令中不包含输出可执行文件的文件名，可执行文件的文件名会自动生成一个默认名，Linux平台为a.out，Windows平台为a.exe</p>
+<p> gcc、g++编译常用选项说明：</p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-o file</td>
+<td>指定生成的输出文件名为file</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>只进行预处理</td>
+</tr>
+<tr>
+<td>-S(大写)</td>
+<td>只进行预处理和编译</td>
+</tr>
+<tr>
+<td>-c(小写)</td>
+<td>只进行预处理、编译和汇编</td>
+</tr>
+</tbody></table>
+<p><strong>#include&lt; &gt; 与 #include “”的区别：</strong></p>
+<p>l &lt; &gt; 表示系统直接按系统指定的目录检索</p>
+<p>l “” 表示系统先在 “” 指定的路径(没写路径代表当前路径)查找头文件，如果找不到，再按系统指定的目录检索</p>
+<p><strong>注意：</strong></p>
+<p>所有的#开头的行，都代表预编译指令，预编译指令行结尾是没有分号的</p>
+<p>所有的可执行语句必须是在代码块里面</p>
+<h3 id="system函数"><a href="#system函数" class="headerlink" title="system函数"></a>system函数</h3><p>#include &lt;stdlib.h&gt;</p>
+<p>int <em>system</em>(const char *command);</p>
+<p>功能：在已经运行的程序中执行另外一个外部程序</p>
+<p>参数：外部可执行程序名字</p>
+<p>返回值：</p>
+<p>成功：0</p>
+<p>失败：任意数字</p>
+<p> 例如：system(“ls”)</p>
+<h2 id="C代码编译成可执行程序经过4步："><a href="#C代码编译成可执行程序经过4步：" class="headerlink" title="C代码编译成可执行程序经过4步："></a>C代码编译成可执行程序经过4步：</h2><p>1）预处理：宏定义展开、头文件展开、条件编译等，同时将代码中的注释删除，这里并不会检查语法</p>
+<p>2）编译：检查语法，将预处理后文件编译生成汇编文件</p>
+<p>3）汇编：将汇编文件生成目标文件(二进制文件)</p>
+<p>4）链接：C语言写的程序是需要依赖各种库的，所以编译之后还需要把库链接到最终的可执行程序中去</p>
+<h2 id="gcc编译过程"><a href="#gcc编译过程" class="headerlink" title="gcc编译过程"></a>gcc编译过程</h2><h3 id="分步编译"><a href="#分步编译" class="headerlink" title="分步编译"></a>分步编译</h3><p>预处理：gcc -E hello.c -o hello.i</p>
+<p>编 译：gcc -S hello.i -o hello.s</p>
+<p>汇 编：gcc -c hello.s -o hello.o</p>
+<p>链 接：gcc  hello.o -o hello</p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-E</td>
+<td>只进行预处理</td>
+</tr>
+<tr>
+<td>-S(大写)</td>
+<td>只进行预处理和编译</td>
+</tr>
+<tr>
+<td>-c(小写)</td>
+<td>只进行预处理、编译和汇编</td>
+</tr>
+<tr>
+<td>-o file</td>
+<td>指定生成的输出文件名为 file</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>文件后缀</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.c</td>
+<td>C 语言文件</td>
+</tr>
+<tr>
+<td>.i</td>
+<td>预处理后的 C 语言文件</td>
+</tr>
+<tr>
+<td>.s</td>
+<td>编译后的汇编文件</td>
+</tr>
+<tr>
+<td>.o</td>
+<td>编译后的目标文件</td>
+</tr>
+</tbody></table>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203041348712.jpg" alt="clip_image002"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203041348225.jpg" alt="clip_image002-16397464813171"></p>
+<h3 id="声明和定义区别"><a href="#声明和定义区别" class="headerlink" title="声明和定义区别"></a>声明和定义区别</h3><p>声明变量不需要建立存储空间，如：extern int a;</p>
+<p>定义变量需要建立存储空间，如：int b;</p>
+<h3 id="整型变量的定义和输出"><a href="#整型变量的定义和输出" class="headerlink" title="整型变量的定义和输出"></a>整型变量的定义和输出</h3><table>
+<thead>
+<tr>
+<th><strong>打印格式</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%d</td>
+<td>输出一个<strong>有符号</strong>的10进制int类型</td>
+</tr>
+<tr>
+<td>%o(字母o)</td>
+<td>输出8进制的int类型</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>输出16进制的int类型，字母以小写输出</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>输出16进制的int类型，字母以大写输出</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>输出一个10进制的无符号数</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>整型常量</strong></th>
+<th><strong>所需类型</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10</td>
+<td>代表int类型</td>
+</tr>
+<tr>
+<td>10l, 10L</td>
+<td>代表long类型</td>
+</tr>
+<tr>
+<td>10ll, 10LL</td>
+<td>代表long long类型</td>
+</tr>
+<tr>
+<td>10u, 10U</td>
+<td>代表unsigned int类型</td>
+</tr>
+<tr>
+<td>10ul, 10UL</td>
+<td>代表unsigned long类型</td>
+</tr>
+<tr>
+<td>10ull, 10ULL</td>
+<td>代表unsigned long long类型</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>打印格式</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%hd</td>
+<td>输出short类型</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>输出int类型</td>
+</tr>
+<tr>
+<td>%ld</td>
+<td>输出long类型</td>
+</tr>
+<tr>
+<td>%lld</td>
+<td>输出long long类型</td>
+</tr>
+<tr>
+<td>%hu</td>
+<td>输出unsigned short类型</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>输出unsigned int类型</td>
+</tr>
+<tr>
+<td>%lu</td>
+<td>输出unsigned long类型</td>
+</tr>
+<tr>
+<td>%llu</td>
+<td>输出unsigned long long类型</td>
+</tr>
+</tbody></table>
+<h3 id="有符号和无符号整型取值范围"><a href="#有符号和无符号整型取值范围" class="headerlink" title="有符号和无符号整型取值范围"></a>有符号和无符号整型取值范围</h3><table>
+<thead>
+<tr>
+<th><strong>数据类型</strong></th>
+<th><strong>占用空间</strong></th>
+<th><strong>取值范围</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>short</td>
+<td>2字节</td>
+<td>-32768 到 32767 (-215  ~ 215-1)</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4字节</td>
+<td>-2147483648 到  2147483647 (-231 ~ 231-1)</td>
+</tr>
+<tr>
+<td>long</td>
+<td>4字节</td>
+<td>-2147483648 到  2147483647 (-231 ~ 231-1)</td>
+</tr>
+<tr>
+<td>unsigned short</td>
+<td>2字节</td>
+<td>0 到 65535 (0 ~ 216-1)</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>4字节</td>
+<td>0 到 4294967295 (0  ~ 232-1)</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>4字节</td>
+<td>0 到 4294967295 (0  ~ 232-1)</td>
+</tr>
+</tbody></table>
+<p>转义字符</p>
+<table>
+<thead>
+<tr>
+<th><strong>转义字符</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>ASCII****码值（十进制）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>警报</td>
+<td>007</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(BS) ，将当前位置移到前一列</td>
+<td>008</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页(FF)，将当前位置移到下页开头</td>
+<td>012</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行(LF) ，将当前位置移到下一行开头</td>
+<td>010</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车(CR) ，将当前位置移到本行开头</td>
+<td>013</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表(HT)  （跳到下一个TAB位置）</td>
+<td>009</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表(VT)</td>
+<td>011</td>
+</tr>
+<tr>
+<td>\</td>
+<td>代表一个反斜线字符”&quot;</td>
+<td>092</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>代表一个单引号（撇号）字符</td>
+<td>039</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>代表一个双引号字符</td>
+<td>034</td>
+</tr>
+<tr>
+<td>?</td>
+<td>代表一个问号</td>
+<td>063</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>数字0</td>
+<td>000</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td>8进制转义字符，d范围0~7</td>
+<td>3位8进制</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>16进制转义字符，h范围0<del>9，a</del>f，A~F</td>
+<td>3位16进制</td>
+</tr>
+</tbody></table>
+<h3 id="类型限定符"><a href="#类型限定符" class="headerlink" title="类型限定符"></a>类型限定符</h3><table>
+<thead>
+<tr>
+<th><strong>限定符</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>extern</td>
+<td>声明一个变量，extern声明的变量没有建立存储空间。  extern int a;&#x2F;&#x2F;变量在定义的时候创建存储空间</td>
+</tr>
+<tr>
+<td>const</td>
+<td>定义一个常量，常量的值不能修改。  const int a &#x3D; 10;</td>
+</tr>
+<tr>
+<td>Volatile</td>
+<td>防止编译器优化代码</td>
+</tr>
+<tr>
+<td>register</td>
+<td>定义寄存器变量，提高效率。register是建议型的指令，而不是命令型的指令，如果CPU有空闲寄存器，那么register就生效，如果没有空闲寄存器，那么register无效。</td>
+</tr>
+</tbody></table>
+<h2 id="printf函数和putchar函数"><a href="#printf函数和putchar函数" class="headerlink" title="printf函数和putchar函数"></a>printf函数和putchar函数</h2><p>printf是输出一个字符串，putchar输出一个字符。 </p>
+<p>printf格式字符：</p>
+<table>
+<thead>
+<tr>
+<th><strong>打印格式</strong></th>
+<th><strong>对应数据类型</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%d</td>
+<td>int</td>
+<td>接受整数值并将它表示为有符号的十进制整数</td>
+</tr>
+<tr>
+<td>%hd</td>
+<td>short int</td>
+<td>短整数</td>
+</tr>
+<tr>
+<td>%hu</td>
+<td>unsigned short</td>
+<td>无符号短整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>unsigned int</td>
+<td>无符号8进制整数</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>unsigned int</td>
+<td>无符号10进制整数</td>
+</tr>
+<tr>
+<td>%x,%X</td>
+<td>unsigned int</td>
+<td>无符号16进制整数，x对应的是abcdef，X对应的是ABCDEF</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>float</td>
+<td>单精度浮点数</td>
+</tr>
+<tr>
+<td>%lf</td>
+<td>double</td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>%e,%E</td>
+<td>double</td>
+<td>科学计数法表示的数，此处”e”的大小写代表在输出时用的”e”的大小写</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>char</td>
+<td>字符型。可以把输入的数字按照ASCII码相应转换为对应的字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>char *</td>
+<td>字符串。输出字符串中的字符直至字符串中的空字符（字符串以’\0‘结尾，这个’\0’即空字符）</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>void *</td>
+<td>以16进制形式输出指针</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>%</td>
+<td>输出一个百分号</td>
+</tr>
+</tbody></table>
+<p>printf附加格式：</p>
+<table>
+<thead>
+<tr>
+<th><strong>字符</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>l(字母l)</td>
+<td>附加在d,u,x,o前面，表示长整数</td>
+</tr>
+<tr>
+<td>-</td>
+<td>左对齐</td>
+</tr>
+<tr>
+<td>m(代表一个整数)</td>
+<td>数据最小宽度</td>
+</tr>
+<tr>
+<td>0(数字0)</td>
+<td>将输出的前面补上0直到占满指定列宽为止不可以搭配使用-</td>
+</tr>
+<tr>
+<td>m.n(代表一个整数)</td>
+<td>m指域宽，即对应的输出项在输出设备上所占的字符数。n指精度，用于说明输出的实型数的小数位数。对数值型的来说，未指定n时，隐含的精度为n&#x3D;6位。</td>
+</tr>
+</tbody></table>
+<h2 id="scanf函数与getchar函数"><a href="#scanf函数与getchar函数" class="headerlink" title="scanf函数与getchar函数"></a>scanf函数与getchar函数</h2><ul>
+<li><p>getchar是从标准输入设备读取一个char。</p>
+</li>
+<li><p>scanf通过%转义的方式可以得到用户通过标准输入设备输入的数据。</p>
+</li>
+</ul>
+<h2 id="gets"><a href="#gets" class="headerlink" title="gets()"></a>gets()</h2><p>#include &lt;stdio.h&gt;</p>
+<p>char  *gets(char *s);</p>
+<p>功能：从标准输入读入字符，并保存到s指定的内存空间，直到出现换行符或读到文件结尾为止。</p>
+<p>参数：</p>
+<p>​    s：字符串首地址</p>
+<p>返回值：</p>
+<p>​    成功：读入的字符串</p>
+<p>​    失败：NULL</p>
+<p><strong>gets(str)与scanf(“%s”,str)的区别：</strong></p>
+<ul>
+<li><p>gets(str)允许输入的字符串含有空格</p>
+</li>
+<li><p>scanf(“%s”,str)不允许含有空格</p>
+</li>
+</ul>
+<h2 id="fgets"><a href="#fgets" class="headerlink" title="fgets()"></a>fgets()</h2><p>#include &lt;stdio.h&gt;</p>
+<p>char  *fgets(char  *s,int size,FILE  *stream);</p>
+<p>功能：从stream指定的文件内读入字符，保存到s所指定的内存空间，直到出现换行字符、读到文件结尾或是已读了size - 1个字符为止，最后会自动加上字符 ‘\0’ 作为字符串结束。</p>
+<p>参数：</p>
+<p>​    s：字符串</p>
+<p>​    size：指定最大读取字符串的长度（size - 1）</p>
+<p>​    stream：文件指针，如果读键盘输入的字符串，固定写为stdin</p>
+<p>返回值：</p>
+<p>​    成功：成功读取的字符串</p>
+<p>​    读到文件尾或出错： <em>NULL</em></p>
+<p>fgets()在读取一个用户通过键盘输入的字符串的时候，同时把用户输入的回车也做为字符串的一部分。通过scanf和gets输入一个字符串的时候，不包含结尾的“\n”，但通过fgets结尾多了“\n”。fgets()函数是安全的，不存在缓冲区溢出的问题。</p>
+<h2 id="puts"><a href="#puts" class="headerlink" title="puts()"></a>puts()</h2><p>#include &lt;stdio.h&gt;</p>
+<p>int  puts(const char *s);</p>
+<p>功能：标准设备输出s字符串，**在输出完成后自动输出一个’\n’**。</p>
+<p>参数：</p>
+<p>​    s：字符串首地址</p>
+<p>返回值：</p>
+<p>​    成功：非负数</p>
+<p>​    失败：-1</p>
+<h2 id="fputs"><a href="#fputs" class="headerlink" title="fputs()"></a>fputs()</h2><p>#include &lt;stdio.h&gt;</p>
+<p>int fputs(const char *str,FILE *stream);</p>
+<p>功能：将str所指定的字符串写入到stream指定的文件中， 字符串结束符 ‘\0’  不写入文件。 </p>
+<p>参数：</p>
+<p>​    str：字符串</p>
+<p>​    stream：文件指针，如果把字符串输出到屏幕，固定写为stdout</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败：-1</p>
+<p> fputs()是puts()的文件操作版本，但fputs()不会自动输出一个’\n’。</p>
+<h2 id="strlen"><a href="#strlen" class="headerlink" title="strlen()"></a>strlen()</h2><p>#include &lt;string.h&gt;</p>
+<p>size_t  strlen(const char *s);</p>
+<p>功能：计算指定指定字符串s的长度，不包含字符串结束符‘\0’</p>
+<p>参数：</p>
+<p>s：字符串首地址</p>
+<p>返回值：字符串s的长度，size_t为unsigned int类型</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">time_t</span> <span class="title function_">time</span><span class="params">(<span class="type">time_t</span> *t)</span>;</span><br><span class="line"></span><br><span class="line">功能：获取当前系统时间</span><br><span class="line"></span><br><span class="line">参数：常设置为<span class="literal">NULL</span></span><br><span class="line"></span><br><span class="line">返回值：当前系统时间, <span class="type">time_t</span>相当于<span class="type">long</span>类型，单位为毫秒</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">srand</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> seed)</span>;</span><br><span class="line"></span><br><span class="line">功能：用来设置rand()产生随机数时的随机种子</span><br><span class="line"></span><br><span class="line">参数：如果每次seed相等，rand()产生随机数相等</span><br><span class="line"></span><br><span class="line">返回值：无</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">rand</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"></span><br><span class="line">功能：返回一个随机数值</span><br><span class="line"></span><br><span class="line">参数：无</span><br><span class="line"></span><br><span class="line">返回值：随机数</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="为了避免同一个文件被include多次，C-x2F-C-中有两种方式，一种是-ifndef-方式，一种是-pragma-once-方式。"><a href="#为了避免同一个文件被include多次，C-x2F-C-中有两种方式，一种是-ifndef-方式，一种是-pragma-once-方式。" class="headerlink" title="为了避免同一个文件被include多次，C&#x2F;C++中有两种方式，一种是 #ifndef 方式，一种是 #pragma once 方式。"></a><strong>为了避免同一个文件被include多次，C&#x2F;C++中有两种方式，一种是 #ifndef 方式，一种是 #pragma once 方式。</strong></h5><ul>
+<li>方法一：</li>
+</ul>
+<p>#ifndef  SOMEFILE.H</p>
+<p>#define SOMEFILE.H</p>
+<p>&#x2F;&#x2F; 声明语句</p>
+<p> #endif </p>
+<ul>
+<li>方法二：</li>
+</ul>
+<p>#pragma once </p>
+<p>&#x2F;&#x2F; 声明语句</p>
+<h2 id="万能指针void"><a href="#万能指针void" class="headerlink" title="万能指针void *"></a>万能指针void *</h2><p>void *指针可以指向任意变量的内存空间：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   <span class="type">void</span> *p = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">p = (<span class="type">void</span> *)&amp;a; <span class="comment">//指向变量时，最好转换为void *</span></span><br><span class="line"><span class="comment">//使用指针变量指向的内存时，转换为int *</span></span><br><span class="line">*( (<span class="type">int</span> *)p ) = <span class="number">11</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;a = %d\n&quot;</span>, a);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="const修饰的指针变量"><a href="#const修饰的指针变量" class="headerlink" title="const修饰的指针变量"></a>const修饰的指针变量</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//指向常量的指针</span></span><br><span class="line"><span class="comment">//修饰*，指针指向内存区域不能修改，指针指向可以变</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> * p1 = &amp;a; <span class="comment">//等价于int const *p1 = &amp;a;</span></span><br><span class="line"><span class="comment">//*p1 = 111; //err</span></span><br><span class="line">p1 = &amp;b; <span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//指针常量</span></span><br><span class="line"><span class="comment">//修饰p1，指针指向不能变，指针指向的内存可以修改</span></span><br><span class="line"><span class="type">int</span> * <span class="type">const</span> p2 = &amp;a;</span><br><span class="line"><span class="comment">//p2 = &amp;b; //err</span></span><br><span class="line">*p2 = <span class="number">222</span>; <span class="comment">//ok</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="多级指针"><a href="#多级指针" class="headerlink" title="多级指针"></a>多级指针</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a=<span class="string">&#x27;b&#x27;</span>;</span><br><span class="line"><span class="type">char</span>* b=&amp;a;<span class="comment">//*b=&#x27;b&#x27;</span></span><br><span class="line"><span class="type">char</span>** c=&amp;b;<span class="comment">//*c=&amp;a</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203041349134.png" alt="image-20211218235604584"></p>
+<h2 id="strstr-p-”abcd”"><a href="#strstr-p-”abcd”" class="headerlink" title="strstr(p,”abcd”)"></a>strstr(p,”abcd”)</h2><p>从p指定的内存地址中查找子字符串”abcd”，找到返回第一个字符的位置，没找到返回NULL</p>
+<h2 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy()"></a>strcpy()</h2><p>#include &lt;string.h&gt;</p>
+<p>char *strcpy(char *dest,const char *src);</p>
+<p>功能：把src所指向的字符串覆盖复制到dest所指向的空间中，’\0’也会拷贝过去</p>
+<p>参数：</p>
+<p>​    dest：目的字符串首地址</p>
+<p>​    src：源字符首地址</p>
+<p>返回值：</p>
+<p>​    成功：返回dest字符串的首地址</p>
+<p>​    失败：NULL</p>
+<p>注意：如果参数dest所指的内存空间不够大，可能会造成缓冲溢出的错误情况。</p>
+<h2 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy()"></a>strncpy()</h2><p>#include &lt;string.h&gt;</p>
+<p>char *strncpy(char *dest,const char *src,size_t n);</p>
+<p>功能：把src指向字符串的前n个字符复制到dest所指向的空间中，复制完不会在dest所指向的空间中自动添加’\0’。</p>
+<p>参数：</p>
+<p>​    dest：目的字符串首地址</p>
+<p>​    src：源字符首地址</p>
+<p>​    n：指定需要拷贝字符串个数</p>
+<p>返回值：</p>
+<p>​    成功：返回dest字符串的首地址</p>
+<p>​    失败：NULL</p>
+<h2 id="strcat"><a href="#strcat" class="headerlink" title="strcat()"></a>strcat()</h2><p>#include &lt;string.h&gt;</p>
+<p>char  *strcat(char *dest, const char *src);</p>
+<p>功能：将src字符串连接到dest的尾部，‘\0’也会追加过去</p>
+<p>参数：</p>
+<p>​    dest：目的字符串首地址</p>
+<p>​    src：源字符首地址</p>
+<p>返回值：</p>
+<p>​    成功：返回dest字符串的首地址</p>
+<p>​    失败：NULL</p>
+<h2 id="strncat"><a href="#strncat" class="headerlink" title="strncat()"></a>strncat()</h2><p>#include &lt;string.h&gt;</p>
+<p>char *strncat(char *dest,const char *src,size_t n);</p>
+<p>功能：将src字符串前n个字符连接到dest的尾部，‘\0’也会追加过去，若复制的最后一个不是’\0’，则复制完全部后，自动在dest加个’\0’</p>
+<p>参数：</p>
+<p>​    dest：目的字符串首地址</p>
+<p>​    src：源字符首地址</p>
+<p>​    n：指定需要追加字符串个数</p>
+<p>返回值：</p>
+<p>​    成功：返回dest字符串的首地址</p>
+<p>​    失败：NULL</p>
+<h2 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h2><p>#include &lt;string.h&gt;</p>
+<p>int strcmp(const  char *s1,const char *s2);</p>
+<p>功能：比较 s1 和 s2 的大小，比较的是字符ASCII码大小。</p>
+<p>参数：</p>
+<p>​    s1：字符串1首地址</p>
+<p>​    s2：字符串2首地址</p>
+<p>返回值：</p>
+<p>​    相等：0</p>
+<p>​    大于：&gt;0 在不同操作系统strcmp结果会不同  返回ASCII差值</p>
+<p>​    小于：&lt;0</p>
+<h2 id="strncmp"><a href="#strncmp" class="headerlink" title="strncmp()"></a>strncmp()</h2><p>#include &lt;string.h&gt;</p>
+<p>int strncmp(const char *s1,const char *s2,size_t n);</p>
+<p>功能：比较 s1 和 s2 前n个字符的大小，比较的是字符ASCII码大小。</p>
+<p>参数：</p>
+<p>​    s1：字符串1首地址</p>
+<p>​    s2：字符串2首地址</p>
+<p>​    n：指定比较字符串的数量</p>
+<p>返回值：</p>
+<p>​    相等：0</p>
+<p>​    大于： &gt; 0</p>
+<p>​    小于： &lt; 0</p>
+<p>​    </p>
+<h2 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf()"></a>sprintf()</h2><p>#include &lt;stdio.h&gt;</p>
+<p>int sprintf(char *str,const char *format, …);</p>
+<p>功能：根据参数format字符串来转换并格式化数据，然后将结果输出到str指定的空间中，直到出现字符串结束符 ‘\0’ 为止。</p>
+<p>参数：</p>
+<p>​    str：字符串首地址</p>
+<p>​    format：字符串格式，用法和printf()一样</p>
+<p>返回值：</p>
+<p>​    成功：实际格式化的字符个数</p>
+<p>​    失败： - 1</p>
+<p><strong>用法：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">include &lt;stdio.h&gt; 	</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">char</span> dst[<span class="number">100</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"> 		<span class="type">char</span> src[] = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;a = %d, src = %s&quot;</span>, a, src);</span><br><span class="line"></span><br><span class="line"> 		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"> 		<span class="type">int</span> len = <span class="built_in">sprintf</span>(dst, <span class="string">&quot;a = %d, src = %s&quot;</span>, a, src);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;dst = \&quot; %s\&quot;\n&quot;</span>, dst);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;len = %d\n&quot;</span>, len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="sscanf"><a href="#sscanf" class="headerlink" title="sscanf()"></a>sscanf()</h2><p>#include &lt;stdio.h&gt;</p>
+<p>int sscanf(const char *str, const char *format, …);</p>
+<p>功能：从str指定的字符串读取数据，并根据参数format字符串来提取数据。</p>
+<p>参数：</p>
+<p>​    str：指定的字符串首地址</p>
+<p>​    format：字符串格式，用法和scanf()一样</p>
+<p>返回值：</p>
+<p>​    成功：参数数目，成功转换的值的个数</p>
+<p>​    失败： - 1</p>
+<p> 比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    char src[] = &quot;a=10, b=20&quot;;</span><br><span class="line"></span><br><span class="line">​   int a;</span><br><span class="line"></span><br><span class="line">​   int b;</span><br><span class="line"></span><br><span class="line">​   sscanf(src, &quot;a=%d, b=%d&quot;, &amp;a, &amp;b);</span><br><span class="line"></span><br><span class="line">​   printf(&quot;a:%d, b:%d\n&quot;, a, b);</span><br><span class="line"></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="strchr"><a href="#strchr" class="headerlink" title="strchr()"></a>strchr()</h2><p>#include &lt;string.h&gt;</p>
+<p>char *strchr(const char *s, int c);</p>
+<p><strong>功能</strong>：在字符串s中查找字母c出现的位置</p>
+<p><strong>参数</strong>：</p>
+<p>​    s：字符串首地址</p>
+<p>​    c：匹配字母(字符)</p>
+<p><strong>返回值</strong>：</p>
+<p>​    成功：返回第一次出现的c地址</p>
+<p>​    失败：NULL</p>
+<p>​    char src[] &#x3D; “ddda123abcd”;</p>
+<p>​    char *p &#x3D; <em>strchr</em>(src, ‘a’);</p>
+<p>​    <em>printf</em>(“p &#x3D; %s\n”, p);</p>
+<h2 id="strstr"><a href="#strstr" class="headerlink" title="strstr()"></a>strstr()</h2><p>#include &lt;string.h&gt;</p>
+<p>char *strstr(const char *str,const char *substr);</p>
+<p>功能：在字符串haystack中查找字符串needle出现的位置</p>
+<p>参数：</p>
+<p>​    str：源字符串首地址</p>
+<p>​    substr：待匹配字符串</p>
+<p>返回值：</p>
+<p>​    成功：返回第一次出现的substr地址</p>
+<p>​    失败：NULL</p>
+<h2 id="strtok"><a href="#strtok" class="headerlink" title="strtok()"></a>strtok()</h2><p>#include &lt;string.h&gt;</p>
+<p>char *strtok(char *str,const char *delim);</p>
+<p>功能：来将字符串分割成一个个片段。当strtok()在参数str的字符串中发现参数delim中包含的分割字符时, 则会将该字符改为\0 字符，当连续出现多个时只替换第一个为\0。</p>
+<p>参数：</p>
+<p>​    str：指向欲分割的字符串</p>
+<p>​    delim：为欲分割字符串中包含的所有字符中的一个</p>
+<p>返回值：</p>
+<p>​    成功：分割后字符串首地址</p>
+<p>​    失败：NULL</p>
+<ul>
+<li><p>在第一次调用时：strtok()必需给予参数str字符串</p>
+</li>
+<li><p>往后的调用则将参数str设置成NULL，每次调用成功则返回指向被分割出片段的指针</p>
+</li>
+</ul>
+<p> 比如：</p>
+<p>​    char a[100] &#x3D; “adc*fvcv*ebcy*hghbdfg*casdert”;</p>
+<p>​    char *s &#x3D; <em>strtok</em>(a, “*“);&#x2F;&#x2F;将”*“分割的子串取出</p>
+<p>​    while (s !&#x3D; <em>NULL</em>)</p>
+<p>​    {</p>
+<p>​       <em>printf</em>(“%s\n”, s);</p>
+<p>​       s &#x3D; <em>strtok</em>(<em>NULL</em>, “*”);</p>
+<p>​    }</p>
+<h2 id="atoi"><a href="#atoi" class="headerlink" title="atoi()"></a>atoi()</h2><p>#include &lt;stdlib.h&gt;</p>
+<p>int atoi(const char *nptr);</p>
+<p>功能：atoi()会扫描nptr字符串，跳过前面的空格字符，直到遇到数字或正负号才开始做转换，而遇到非数字或字符串结束符(‘\0’)才结束转换，并将结果返回。将char数组中的数字转化为整形后返回。</p>
+<p>参数：</p>
+<p>​    nptr：待转换的字符串</p>
+<p>返回值：成功转换后整数</p>
+<p>类似的函数有：</p>
+<ul>
+<li><p>atof()：把一个小数形式的字符串转化为一个浮点数。</p>
+</li>
+<li><p>atol()：将一个字符串转化为long类型</p>
+</li>
+</ul>
+<p> 比如：</p>
+<p>​    char str1[] &#x3D; “-10”;</p>
+<p>​    int num1 &#x3D; <em>atoi</em>(str1);</p>
+<p>​    <em>printf</em>(“num1 &#x3D; %d\n”, num1);</p>
+<p>​    char str2[] &#x3D; “0.123”;</p>
+<p>​    double num2 &#x3D; <em>atof</em>(str2);</p>
+<p>​    <em>printf</em>(“num2 &#x3D; %lf\n”, num2);</p>
+<p>所有的函数默认都是全局的（全局意味着一个文件中定义的函数，能被另一个文件使用），意味着所有的函数都不能重名，但如果是staitc函数，那么作用域是文件级的，所以不同的文件static函数名是可以相同的。</p>
+<p>总结</p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>作用域</strong></th>
+<th><strong>生命周期</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auto变量</td>
+<td>一对{}内</td>
+<td>当前函数</td>
+</tr>
+<tr>
+<td>static局部变量</td>
+<td>一对{}内</td>
+<td>整个程序运行期</td>
+</tr>
+<tr>
+<td>extern变量</td>
+<td>整个程序</td>
+<td>整个程序运行期</td>
+</tr>
+<tr>
+<td>static全局变量</td>
+<td>当前文件</td>
+<td>整个程序运行期</td>
+</tr>
+<tr>
+<td>extern函数</td>
+<td>整个程序</td>
+<td>整个程序运行期</td>
+</tr>
+<tr>
+<td>static函数</td>
+<td>当前文件</td>
+<td>整个程序运行期</td>
+</tr>
+<tr>
+<td>register变量</td>
+<td>一对{}内</td>
+<td>当前函数</td>
+</tr>
+<tr>
+<td>全局变量</td>
+<td>整个程序</td>
+<td>整个程序运行期</td>
+</tr>
+</tbody></table>
+<h1 id="内存操作函数"><a href="#内存操作函数" class="headerlink" title="内存操作函数"></a>内存操作函数</h1><h2 id="memset"><a href="#memset" class="headerlink" title="memset()"></a>memset()</h2><p>#include &lt;string.h&gt;</p>
+<p>void *memset(void *s,int c,size_t n);</p>
+<p>功能：将s的内存区域的前n个字节以参数c填入</p>
+<p>参数：</p>
+<p>​    s：需要操作内存s的首地址</p>
+<p>​    c：填充的字符，c虽然参数为int，但必须是unsigned char , 范围为0~255</p>
+<p>​    n：指定需要设置的大小</p>
+<p>返回值：s的首地址</p>
+<p>​    int a[10];</p>
+<p>​    <em>memset</em>(a, 0, sizeof(a));</p>
+<p>​    <em>memset</em>(a, 97, sizeof(a));</p>
+<p>​    int i &#x3D; 0;</p>
+<p>​    for (i &#x3D; 0; i &lt; 10; i++)</p>
+<p>​    {</p>
+<p>​       <em>printf</em>(“%c\n”, a[i]);</p>
+<p>​    }</p>
+<h2 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy()"></a>memcpy()</h2><p>#include &lt;string.h&gt;</p>
+<p>void *memcpy(void *dest,const void *src,size_t n);</p>
+<p>功能：拷贝src所指的内存内容的前n个字节到dest所指的内存地址上。</p>
+<p>参数：</p>
+<p>​    dest：目的内存首地址</p>
+<p>​    src：源内存首地址，注意：dest和src所指的内存空间不可重叠，可能会导致程序报错</p>
+<p>​    n：需要拷贝的字节数</p>
+<p>返回值：dest的首地址</p>
+<p>​    int a[10] &#x3D; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };</p>
+<p>​    int b[10];</p>
+<p>​    </p>
+<p>​    <em>memcpy</em>(b, a, sizeof(a));</p>
+<p>​    int i &#x3D; 0;</p>
+<p>​    for (i &#x3D; 0; i &lt; 10; i++)</p>
+<p>​    {</p>
+<p>​       <em>printf</em>(“%d, “, b[i]);</p>
+<p>​    }</p>
+<p>​    <em>printf</em>(“\n”);</p>
+<p>​    &#x2F;&#x2F;memcpy(&amp;a[3], a, 5 * sizeof(int)); &#x2F;&#x2F;err, 内存重叠</p>
+<h2 id="memmove"><a href="#memmove" class="headerlink" title="memmove()"></a>memmove()</h2><p>memmove()功能用法和memcpy()一样，区别在于：dest和src所指的内存空间重叠时，memmove()仍然能处理，不过执行效率比memcpy()低些。</p>
+<h2 id="memcmp"><a href="#memcmp" class="headerlink" title="memcmp()"></a>memcmp()</h2><p>#include &lt;string.h&gt;</p>
+<p>int memcmp(const void *s1,const void *s2,size_t n);</p>
+<p>功能：比较s1和s2所指向内存区域的前n个字节</p>
+<p>参数：</p>
+<p>​    s1：内存首地址1</p>
+<p>​    s2：内存首地址2</p>
+<p>​    n：需比较的前n个字节</p>
+<p>返回值：</p>
+<p>​    相等：&#x3D;0</p>
+<p>​    大于：&gt;0</p>
+<p>​    小于：&lt;0</p>
+<p>​    int a[10] &#x3D; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };</p>
+<p>​    int b[10] &#x3D; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };</p>
+<p>​    int flag &#x3D; <em>memcmp</em>(a, b, sizeof(a));</p>
+<p>​    <em>printf</em>(“flag &#x3D; %d\n”, flag);</p>
+<h1 id="堆区内存分配和释放"><a href="#堆区内存分配和释放" class="headerlink" title="堆区内存分配和释放"></a>堆区内存分配和释放</h1><h2 id="1-malloc"><a href="#1-malloc" class="headerlink" title="1)malloc()"></a>1)malloc()</h2><p>#include &lt;stdlib.h&gt;</p>
+<p>void *malloc(size_t size);</p>
+<p>功能：在内存的动态存储区(堆区)中分配一块长度为size字节的连续区域，用来存放类型说明符指定的类型。分配的内存空间内容不确定，一般使用memset初始化。</p>
+<p>参数：</p>
+<p>​    size：需要分配内存大小(单位：字节)</p>
+<p>返回值：</p>
+<p>成功：分配空间的起始地址</p>
+<p>失败：NULL</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> count, *<span class="built_in">array</span>, n;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入要申请数组的个数:\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="built_in">array</span> = (<span class="type">int</span> *)<span class="built_in">malloc</span>(n * <span class="keyword">sizeof</span> (<span class="type">int</span>));</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">array</span> == <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;申请空间失败!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125; <span class="comment">//将申请到空间清0</span></span><br><span class="line">	<span class="built_in">memset</span>(<span class="built_in">array</span>, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>)*n);</span><br><span class="line"> 	<span class="keyword">for</span> (count = <span class="number">0</span>; count &lt; n; count++) <span class="comment">/*给数组赋值*/</span></span><br><span class="line">		<span class="built_in">array</span>[count] = count;</span><br><span class="line">	<span class="keyword">for</span> (count = <span class="number">0</span>; count &lt; n; count++) <span class="comment">/*打印数组元素*/</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%2d&quot;</span>, <span class="built_in">array</span>[count]);</span><br><span class="line">	<span class="built_in">free</span>(<span class="built_in">array</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-free"><a href="#2-free" class="headerlink" title="2)free()"></a>2)free()</h2><p>#include &lt;stdlib.h&gt;</p>
+<p>void free(void *ptr);</p>
+<p>功能：释放ptr所指向的一块内存空间，ptr是一个任意类型的指针变量，指向被释放区域的首地址。对同一内存空间多次释放会出错。</p>
+<p>参数：</p>
+<p>ptr：需要释放空间的首地址，被释放区应是由malloc函数所分配的区域。</p>
+<p>返回值：无</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203041349045.jpg" alt="clip_image002-16398959995502"></p>
+<h2 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h2><p>typedef为C语言的关键字，作用是为一种数据类型(基本类型或自定义数据类型)定义一个新名字，不能创建新类型。</p>
+<ul>
+<li><p>与#define不同，typedef仅限于数据类型，而不是能是表达式或具体的值</p>
+</li>
+<li><p>#define发生在预处理，typedef发生在编译阶段</p>
+</li>
+</ul>
+<h2 id="文件的打开"><a href="#文件的打开" class="headerlink" title="文件的打开"></a>文件的打开</h2><p>任何文件使用之前必须打开：</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>FILE</strong> *** fopen(<strong><strong>const</strong> <strong>char</strong> *** filename,</strong> <strong>const</strong> <strong>char</strong> *** mode);**</p>
+<p>功能：打开文件</p>
+<p>参数：</p>
+<p>​    filename：需要打开的文件名，根据需要加上路径</p>
+<p>​    mode：打开文件的模式设置</p>
+<p>返回值：</p>
+<p>​    成功：文件指针</p>
+<p>​    失败：NULL</p>
+<p>第一个参数的几种形式:</p>
+<p>​    <em>FILE</em> *fp_passwd &#x3D; <em>NULL</em>;</p>
+<p>​    &#x2F;&#x2F;相对路径：</p>
+<p>​    &#x2F;&#x2F;打开当前目录passdw文件：源文件(源程序)所在目录</p>
+<p>​    <em>FILE</em> *fp_passwd &#x3D; <em>fopen</em>(“passwd.txt”, “r”);</p>
+<p>​    </p>
+<p>​    &#x2F;&#x2F;打开当前目录(test)下passwd.txt文件</p>
+<p>​    fp_passwd &#x3D; <em>fopen</em>(“. &#x2F; test &#x2F; passwd.txt”, “r”);</p>
+<p>​    </p>
+<p>​    &#x2F;&#x2F;打开当前目录上一级目录（相对当前目录）passwd.txt文件</p>
+<p>​    fp_passwd &#x3D; <em>fopen</em>(“.. &#x2F; passwd.txt”, “r”);</p>
+<p>​       </p>
+<p>​    &#x2F;&#x2F;绝对路径：</p>
+<p>​    &#x2F;&#x2F;打开C盘test目录下一个叫passwd.txt文件</p>
+<p>​    fp_passwd &#x3D; <em>fopen</em>(“c:&#x2F;test&#x2F;passwd.txt”,”r”);</p>
+<p>第二个参数的几种形式(打开文件的方式)：</p>
+<table>
+<thead>
+<tr>
+<th><strong>打开模式</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r或rb</td>
+<td>以只读方式打开一个文本文件（不创建文件，若文件不存在则报错）</td>
+</tr>
+<tr>
+<td>w或wb</td>
+<td>以写方式打开文件(如果文件存在则清空文件，文件不存在则创建一个文件)</td>
+</tr>
+<tr>
+<td>a或ab</td>
+<td>以追加方式打开文件，在末尾添加内容，若文件不存在则创建文件</td>
+</tr>
+<tr>
+<td>r+或rb+</td>
+<td>以可读、可写的方式打开文件(不创建新文件)</td>
+</tr>
+<tr>
+<td>w+或wb+</td>
+<td>以可读、可写的方式打开文件(如果文件存在则清空文件，文件不存在则创建一个文件)</td>
+</tr>
+<tr>
+<td>a+或ab+</td>
+<td>以添加方式打开文件，打开文件并在末尾更改文件,若文件不存在则创建文件</td>
+</tr>
+</tbody></table>
+<p> 注意：</p>
+<ul>
+<li>b是二进制模式的意思，b只是在Windows有效，在Linux用r和rb的结果是一样的</li>
+<li>Unix和Linux下所有的文本文件行都是\n结尾，而Windows所有的文本文件行都是\r\n结尾</li>
+<li>在Windows平台下，以“文本”方式打开文件，不加b：<ul>
+<li>当读取文件的时候，系统会将所有的 “\r\n” 转换成 “\n”</li>
+<li>当写入文件的时候，系统会将 “\n” 转换成 “\r\n” 写入 </li>
+<li>以”二进制”方式打开文件，则读写都不会进行这样的转换</li>
+</ul>
+</li>
+<li>在Unix&#x2F;Linux平台下，“文本”与“二进制”模式没有区别，”\r\n” 作为两个字符原样输入输出</li>
+</ul>
+<p>int main(void)</p>
+<p>{</p>
+<p>​    FILE *fp &#x3D; NULL;</p>
+<p>​    &#x2F;&#x2F; “\“这样的路径形式，只能在windows使用</p>
+<p>​    &#x2F;&#x2F; “&#x2F;“这样的路径形式，windows和linux平台下都可用，建议使用这种</p>
+<p>​    &#x2F;&#x2F; 路径可以是相对路径，也可是绝对路径</p>
+<p>​    fp &#x3D; fopen(“..&#x2F;test”, “w”);</p>
+<p>​    &#x2F;&#x2F;fp &#x3D; fopen(“..\test”, “w”);</p>
+<p>​    if (fp &#x3D;&#x3D; NULL) &#x2F;&#x2F;返回空，说明打开失败</p>
+<p>​    {</p>
+<p>​       &#x2F;&#x2F;perror()是标准出错打印函数，能打印调用库函数出错原因</p>
+<p>​       perror(“open”);</p>
+<p>​       return -1;</p>
+<p>​    }</p>
+<p>​    return 0;</p>
+<p>}</p>
+<h2 id="文件的关闭"><a href="#文件的关闭" class="headerlink" title="文件的关闭"></a>文件的关闭</h2><p>任何文件在使用后应该关闭：</p>
+<ul>
+<li>打开的文件会占用内存资源，如果总是打开不关闭，会消耗很多内存</li>
+<li>一个进程同时打开的文件数是有限制的，超过最大同时打开文件数，再次调用fopen打开文件会失败</li>
+<li>如果没有明确的调用fclose关闭打开的文件，那么程序在退出的时候，操作系统会统一关闭。</li>
+</ul>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fclose</strong>(<strong>FILE</strong> *** stream);**</p>
+<p>功能：关闭先前fopen()打开的文件。此动作让缓冲区的数据写入文件中，并释放系统所提供的文件资源。</p>
+<p>参数：</p>
+<p>​    stream：文件指针</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败：-1</p>
+<h2 id="按照字符读写文件fgetc、fputc"><a href="#按照字符读写文件fgetc、fputc" class="headerlink" title="按照字符读写文件fgetc、fputc"></a>按照字符读写文件fgetc、fputc</h2><h4 id="1）写文件"><a href="#1）写文件" class="headerlink" title="1）写文件"></a>1）写文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fputc</strong>(<strong>int</strong> <strong>ch,</strong> <strong>FILE</strong> *** stream);**</p>
+<p>功能：将ch转换为unsigned char后写入stream指定的文件中</p>
+<p>参数：</p>
+<p>​    ch：需要写入文件的字符</p>
+<p>​    stream：文件指针</p>
+<p>返回值：</p>
+<p>​    成功：成功写入文件的字符</p>
+<p>​    失败：返回-1</p>
+<p>char buf[] &#x3D; “this is a test for fputc”;</p>
+<p>int i &#x3D; 0;</p>
+<p>int n &#x3D; strlen(buf);</p>
+<p>for (i &#x3D; 0; i &lt; n; i++)</p>
+<p>{</p>
+<p>​    &#x2F;&#x2F;往文件fp写入字符buf[i]</p>
+<p>​    int ch &#x3D; fputc(buf[i], fp);</p>
+<p>​    printf(“ch &#x3D; %c\n”, ch);</p>
+<p>}</p>
+<h4 id="文件结尾"><a href="#文件结尾" class="headerlink" title="文件结尾"></a>文件结尾</h4><p>在C语言中，<strong>EOF表示文件结束符(end of file)。</strong>在while循环中以EOF作为文件结束标志，这种以EOF作为文件结束标志的文件，必须是文本文件。在文本文件中，数据都是以字符的ASCII代码值的形式存放。我们知道，ASCII代码值的范围是0~127，不可能出现-1，因此可以用EOF作为文件结束标志。</p>
+<p>#define <em>EOF</em>   (-1)</p>
+<p>当把数据以二进制形式存放到文件中时，就会有-1值的出现，因此不能采用EOF作为二进制文件的结束标志。为解决这一个问题，ANSI C提供一个feof函数，用来判断文件是否结束。feof函数既可用以判断二进制文件又可用以判断文本文件。</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>feof(</strong> <strong>FILE</strong> *** stream);**</p>
+<p>功能：检测是否读取到了文件结尾。判断的是最后一次“读操作的内容”，不是当前位置内容(上一个内容)。</p>
+<p>参数：</p>
+<p>​    stream：文件指针</p>
+<p>返回值：</p>
+<p>​    非0值：已经到文件结尾</p>
+<p>​    0：没有到文件结尾</p>
+<h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fgetc(</strong> <strong>FILE</strong> *** stream);**</p>
+<p>功能：从stream指定的文件中读取一个字符</p>
+<p>参数：</p>
+<p>​    stream：文件指针</p>
+<p>返回值：</p>
+<p>​    成功：返回读取到的字符</p>
+<p>​    失败：-1</p>
+<p>char ch;</p>
+<p>#if 0</p>
+<p>while ((ch &#x3D; fgetc(fp)) !&#x3D; EOF)</p>
+<p>{</p>
+<p>​    printf(“%c”, ch);</p>
+<p>}</p>
+<p>printf(“\n”);</p>
+<p>#endif</p>
+<p>while (!feof(fp)) &#x2F;&#x2F;文件没有结束，则执行循环</p>
+<p>{</p>
+<p>​    ch &#x3D; fgetc(fp);</p>
+<p>​    printf(“%c”, ch);</p>
+<p>}</p>
+<p>printf(“\n”);</p>
+<h2 id="按照行读写文件fgets、fputs"><a href="#按照行读写文件fgets、fputs" class="headerlink" title="按照行读写文件fgets、fputs"></a>按照行读写文件fgets、fputs</h2><h4 id="1）写文件-1"><a href="#1）写文件-1" class="headerlink" title="1）写文件"></a>1）写文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fputs(</strong> <strong>const</strong> <strong>char</strong> *** str,** <strong>FILE</strong> *** stream);**</p>
+<p>功能：将str所指定的字符串写入到stream指定的文件中，字符串结束符 ‘\0’  不写入文件。 </p>
+<p>参数：</p>
+<p>​    str：字符串</p>
+<p>​    stream：文件指针</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败：-1</p>
+<p>char *buf[] &#x3D; { “123456\n”, “bbbbbbbbbb\n”, “ccccccccccc\n” };</p>
+<p>int i &#x3D; 0;</p>
+<p>int n &#x3D; 3;</p>
+<p>for (i &#x3D; 0; i &lt; n; i++)</p>
+<p>{</p>
+<p>​    int len &#x3D; fputs(buf[i], fp);</p>
+<p>​    printf(“len &#x3D; %d\n”, len);</p>
+<p>}</p>
+<h4 id="2）读文件"><a href="#2）读文件" class="headerlink" title="2）读文件"></a>2）读文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>char</strong> *** fgets(<strong><strong>char</strong> *** str,</strong> <strong>int</strong> <strong>size,</strong> <strong>FILE</strong> *** stream);**</p>
+<p>功能：从stream指定的文件内读入字符，保存到str所指定的内存空间，直到出现换行字符、读到文件结尾或是已读了size - 1个字符为止，最后会自动加上字符 ‘\0’ 作为字符串结束。</p>
+<p>参数：</p>
+<p>​    str：字符串</p>
+<p>​    size：指定最大读取字符串的长度（size - 1）</p>
+<p>​    stream：文件指针</p>
+<p>返回值：</p>
+<p>​    成功：成功读取的字符串</p>
+<p>​    读到文件尾或出错： NULL</p>
+<p>char buf[100] &#x3D; 0;</p>
+<p>while (!feof(fp)) &#x2F;&#x2F;文件没有结束</p>
+<p>{</p>
+<p>​    memset(buf, 0, sizeof(buf));</p>
+<p>​    char *p &#x3D; fgets(buf, sizeof(buf), fp);</p>
+<p>​    if (p !&#x3D; NULL)</p>
+<p>​    {</p>
+<p>​       printf(“buf &#x3D; %s”, buf);</p>
+<p>​    }</p>
+<p>}</p>
+<h2 id="按照格式化文件fprintf、fscanf"><a href="#按照格式化文件fprintf、fscanf" class="headerlink" title="按照格式化文件fprintf、fscanf"></a>按照格式化文件fprintf、fscanf</h2><h4 id="1）写文件-2"><a href="#1）写文件-2" class="headerlink" title="1）写文件"></a>1）写文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fprintf(</strong> <strong>FILE</strong> *** stream,** <strong>const</strong> <strong>char</strong> *** format, …);**</p>
+<p>功能：根据参数format字符串来转换并格式化数据，然后将结果输出到stream指定的文件中，指定出现字符串结束符 ‘\0’ 为止。</p>
+<p>参数：</p>
+<p>​    stream：已经打开的文件</p>
+<p>​    format：字符串格式，用法和printf()一样</p>
+<p>返回值：</p>
+<p>​    成功：实际写入文件的字符个数</p>
+<p>​    失败：-1</p>
+<p>fprintf(fp, “%d %d %d\n”, 1, 2, 3);</p>
+<h4 id="2）读文件-1"><a href="#2）读文件-1" class="headerlink" title="2）读文件"></a>2）读文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fscanf(</strong> <strong>FILE</strong> *** stream,** <strong>const</strong> <strong>char</strong> *** format, …);**</p>
+<p>功能：从stream指定的文件读取字符串，并根据参数format字符串来转换并格式化数据。</p>
+<p>参数：</p>
+<p>​    stream：已经打开的文件</p>
+<p>​    format：字符串格式，用法和scanf()一样</p>
+<p>返回值：</p>
+<p>​    成功：参数数目，成功转换的值的个数</p>
+<p>​    失败： - 1</p>
+<p>int a &#x3D; 0;</p>
+<p>int b &#x3D; 0;</p>
+<p>int c &#x3D; 0;</p>
+<p>fscanf(fp, “%d %d %d\n”, &amp;a, &amp;b, &amp;c);</p>
+<p>printf(“a &#x3D; %d, b &#x3D; %d, c &#x3D; %d\n”, a, b, c);</p>
+<h2 id="按照块读写文件fread、fwrite"><a href="#按照块读写文件fread、fwrite" class="headerlink" title="按照块读写文件fread、fwrite"></a>按照块读写文件fread、fwrite</h2><h4 id="1）写文件-3"><a href="#1）写文件-3" class="headerlink" title="1）写文件"></a>1）写文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>size_t</strong> <strong>fwrite(</strong> <strong>const</strong> <strong>void</strong> *<strong>ptr,</strong> <strong>size_t</strong> <strong>size,</strong> <strong>size_t</strong> <strong>nmemb,</strong> <strong>FILE</strong> *<strong>stream);</strong></p>
+<p>功能：以数据块的方式给文件写入内容</p>
+<p>参数：</p>
+<p>​    ptr：准备写入文件数据的地址</p>
+<p>​    size： size_t 为 unsigned int类型，此参数指定写入文件内容的块数据大小</p>
+<p>​    nmemb：写入文件的块数，写入文件数据总大小为：size * nmemb</p>
+<p>​    stream：已经打开的文件指针</p>
+<p>返回值：</p>
+<p>​    成功：实际成功写入文件数据的块数目，此值和 nmemb 相等</p>
+<p>​    失败：0</p>
+<p>typedef struct Stu</p>
+<p>{</p>
+<p>​    char name[50];</p>
+<p>​    int id;</p>
+<p>}Stu;</p>
+<p>Stu s[3];</p>
+<p>int i &#x3D; 0;</p>
+<p>for (i &#x3D; 0; i &lt; 3; i++)</p>
+<p>{</p>
+<p>​    sprintf(s[i].name, “stu%d%d%d”, i, i, i);</p>
+<p>​    s[i].id &#x3D; i + 1;</p>
+<p>}</p>
+<p>int ret &#x3D; fwrite(s, sizeof(Stu), 3, fp);</p>
+<p>printf(“ret &#x3D; %d\n”, ret);</p>
+<h4 id="2）读文件-2"><a href="#2）读文件-2" class="headerlink" title="2）读文件"></a>2）读文件</h4><p>#include &lt;stdio.h&gt;</p>
+<p><strong>size_t</strong> <strong>fread(</strong> <strong>void</strong> *<strong>ptr,</strong> <strong>size_t</strong> <strong>size,</strong> <strong>size_t</strong> <strong>nmemb,</strong> <strong>FILE</strong> *<strong>stream);</strong></p>
+<p>功能：以数据块的方式从文件中读取内容</p>
+<p>参数：</p>
+<p>​    ptr：存放读取出来数据的内存空间</p>
+<p>​    size： size_t 为 unsigned int类型，此参数指定读取文件内容的块数据大小</p>
+<p>​    nmemb：读取文件的块数，读取文件数据总大小为：size * nmemb</p>
+<p>​    stream：已经打开的文件指针</p>
+<p>返回值：</p>
+<pre><code> 成功：实际成功读取到内容的块数，如果此值比nmemb小，但大于0，说明读到文件的结尾。
+ 
+ 失败：0
+</code></pre>
+<p>typedef struct Stu</p>
+<p>{</p>
+<p>​    char name[50];</p>
+<p>​    int id;</p>
+<p>}Stu;</p>
+<p>Stu s[3];</p>
+<p>int ret &#x3D; fread(s, sizeof(Stu), 3, fp);</p>
+<p>printf(“ret &#x3D; %d\n”, ret);</p>
+<p>int i &#x3D; 0;</p>
+<p>for (i &#x3D; 0; i &lt; 3; i++)</p>
+<p>{</p>
+<p>​    printf(“s &#x3D; %s, %d\n”, s[i].name, s[i].id);</p>
+<p>}</p>
+<h2 id="文件的随机读写"><a href="#文件的随机读写" class="headerlink" title="文件的随机读写"></a>文件的随机读写</h2><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fseek(</strong> <strong>FILE</strong> *<strong>stream,</strong> <strong>long</strong> <strong>offset,</strong> <strong>int</strong> <strong>whence);</strong></p>
+<p>功能：移动文件流（文件光标）的读写位置。</p>
+<p>参数：</p>
+<p>​    stream：已经打开的文件指针</p>
+<p>​    offset：根据whence来移动的位移数（偏移量），可以是正数，也可以负数，如果正数，则相对于whence往右移动，如果是负数，则相对于whence往左移动。如果向前移动的字节数超过了文件开头则出错返回，如果向后移动的字节数超过了文件末尾，再次写入时将增大文件尺寸。</p>
+<p>​    whence：其取值如下：</p>
+<p>​       SEEK_SET：从文件开头移动offset个字节</p>
+<p>​       SEEK_CUR：从当前位置移动offset个字节</p>
+<p>​       SEEK_END：从文件末尾移动offset个字节</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败：-1</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>long</strong> <strong>ftell(</strong> <strong>FILE</strong> *<strong>stream);</strong></p>
+<p>功能：获取文件流（文件光标）的读写位置。</p>
+<p>参数：</p>
+<p>​    stream：已经打开的文件指针</p>
+<p>返回值：</p>
+<p>​    成功：当前文件流（文件光标）的读写位置</p>
+<p>​    失败：-1</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>void</strong> <strong>rewind(</strong> <strong>FILE</strong> *<strong>stream);</strong></p>
+<p>功能：把文件流（文件光标）的读写位置移动到文件开头。</p>
+<p>参数：</p>
+<p>​    stream：已经打开的文件指针</p>
+<p>返回值：</p>
+<p>​    无返回值</p>
+<p>typedef struct Stu</p>
+<p>{</p>
+<p>​    char name[50];</p>
+<p>​    int id;</p>
+<p>}Stu;</p>
+<p>&#x2F;&#x2F;假如已经往文件写入3个结构体</p>
+<p>&#x2F;&#x2F;fwrite(s, sizeof(Stu), 3, fp);</p>
+<p>Stu s[3];</p>
+<p>Stu tmp; </p>
+<p>int ret &#x3D; 0;</p>
+<p>&#x2F;&#x2F;文件光标读写位置从开头往右移动2个结构体的位置</p>
+<p>fseek(fp, 2 * sizeof(Stu), SEEK_SET);</p>
+<p>&#x2F;&#x2F;读第3个结构体</p>
+<p>ret &#x3D; fread(&amp;tmp, sizeof(Stu), 1, fp);</p>
+<p>if (ret &#x3D;&#x3D; 1)</p>
+<p>{</p>
+<p>​    printf(“[tmp]%s, %d\n”, tmp.name, tmp.id);</p>
+<p>}</p>
+<p>&#x2F;&#x2F;把文件光标移动到文件开头</p>
+<p>&#x2F;&#x2F;fseek(fp, 0, SEEK_SET);</p>
+<p>rewind(fp);</p>
+<p>ret &#x3D; fread(s, sizeof(Stu), 3, fp);</p>
+<p>printf(“ret &#x3D; %d\n”, ret);</p>
+<p>int i &#x3D; 0;</p>
+<p>for (i &#x3D; 0; i &lt; 3; i++)</p>
+<p>{</p>
+<p>​    printf(“s &#x3D;&#x3D;&#x3D; %s, %d\n”, s[i].name, s[i].id);</p>
+<p>}</p>
+<h2 id="获取文件状态"><a href="#获取文件状态" class="headerlink" title="获取文件状态"></a>获取文件状态</h2><p>#include &lt;sys&#x2F;types.h&gt;</p>
+<p>#include &lt;sys&#x2F;stat.h&gt;</p>
+<p><strong>int</strong> <strong>stat</strong>(<strong>const</strong> <strong>char</strong>  *<strong>path,</strong> <strong>struct</strong> <strong>stat  *buf</strong> <strong>);</strong></p>
+<p>功能：获取文件状态信息</p>
+<p>参数：</p>
+<p>​    path：文件名</p>
+<p>​    buf：保存文件信息的结构体</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败-1</p>
+<p>struct stat {</p>
+<p>​    <em>dev_t</em>     <em>st_dev</em>;     &#x2F;&#x2F;文件的设备编号</p>
+<p>​    <em>ino_t</em>     <em>st_ino</em>;      &#x2F;&#x2F;节点</p>
+<p>​    mode_t    <em>st_mode</em>;  &#x2F;&#x2F;文件的类型和存取的权限</p>
+<p>​    nlink_t    <em>st_nlink</em>;   &#x2F;&#x2F;连到该文件的硬连接数目，刚建立的文件值为1</p>
+<p>​    uid_t     <em>st_uid</em>;     &#x2F;&#x2F;用户ID</p>
+<p>​    gid_t     <em>st_gid</em>;     &#x2F;&#x2F;组ID</p>
+<p>​    <em>dev_t</em>     <em>st_rdev</em>;   &#x2F;&#x2F;(设备类型)若此文件为设备文件，则为其设备编号</p>
+<p>​    <em>off_t</em>     <em>st_size</em>;    &#x2F;&#x2F;文件字节数(文件大小)</p>
+<p>​    unsigned long st_blksize;  &#x2F;&#x2F;块大小(文件系统的I&#x2F;O 缓冲区大小)</p>
+<p>​    unsigned long st_blocks;  &#x2F;&#x2F;块数</p>
+<p>​    <em>time_t</em>    <em>st_atime</em>;   &#x2F;&#x2F;最后一次访问时间</p>
+<p>​    <em>time_t</em>    <em>st_mtime</em>;  &#x2F;&#x2F;最后一次修改时间</p>
+<p>​    <em>time_t</em>    <em>st_ctime</em>;   &#x2F;&#x2F;最后一次改变时间(指属性)</p>
+<p>};</p>
+<h2 id="删除文件、重命名文件名"><a href="#删除文件、重命名文件名" class="headerlink" title="删除文件、重命名文件名"></a>删除文件、重命名文件名</h2><p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>remove</strong>(<strong>const</strong> <strong>char</strong> <em><strong>pathname</strong></em><em>);</em>*</p>
+<p>功能：删除文件</p>
+<p>参数：</p>
+<p>​    pathname：文件名</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败：-1</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>rename</strong>(<strong>const</strong> <strong>char</strong> <em><strong>oldpath</strong></em><em>,</em>* <strong>const</strong> <strong>char</strong> <em><strong>newpath</strong></em><em>);</em>*</p>
+<p>功能：把oldpath的文件名改为newpath</p>
+<p>参数：</p>
+<p>​    oldpath：旧文件名</p>
+<p>​    newpath：新文件名</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败： - 1</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203041349281.jpg" alt="clip_image002-16398997597833"></p>
+<p>更新缓冲区</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p><strong>int</strong> <strong>fflush</strong>(**FILE *** <strong>stream);</strong></p>
+<p>功能：更新缓冲区，让缓冲区的数据立马写到文件中。</p>
+<p>参数：</p>
+<p>stream：文件指针</p>
+<p>返回值：</p>
+<p>​    成功：0</p>
+<p>​    失败：-1</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZeanHike</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/02/28/%E9%80%86%E5%90%91/windows%E5%BC%80%E5%8F%91/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">http://example.com/2022/02/28/%E9%80%86%E5%90%91/windows%E5%BC%80%E5%8F%91/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Welcome</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Reverse/">Reverse</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613076.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/02/28/%E9%80%86%E5%90%91/windows%E5%BC%80%E5%8F%91/c%E9%AB%98%E7%BA%A7/"><img class="prev-cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613948.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C高级</div></div></a></div><div class="next-post pull-right"><a href="/2022/02/28/%E9%80%86%E5%90%91/%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86/%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E5%9F%BA%E7%A1%80/"><img class="next-cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613676.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">c语言基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="PE文件结构"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612724.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">PE文件结构</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/" title="ida使用日记"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">ida使用日记</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/" title="WindowsAPI"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612553.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">WindowsAPI</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="刷题笔记"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613243.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">刷题笔记</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/%E5%8F%8D%E6%B1%87%E7%BC%96C%E8%AF%AD%E8%A8%80/" title="反汇编C语言"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613360.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">反汇编C语言</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" title="汇编语言"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613154.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">汇编语言</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202202282243300.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZeanHike</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lixuyong2014"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lixuyong2014" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:774781684@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/175939686" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://bbs.pediy.com/user-home-939008.htm" target="_blank" title="看雪"><i class="fa-regular fa-snowflake"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=MQJXLBM5gbBl9bEeJNpmTMs4lG46qO3N&amp;noverify=0" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">时不时更新，尽量一天一篇</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GCC"><span class="toc-number">1.</span> <span class="toc-text">GCC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">system函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%BB%8F%E8%BF%874%E6%AD%A5%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">C代码编译成可执行程序经过4步：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gcc%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-number"></span> <span class="toc-text">gcc编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%AD%A5%E7%BC%96%E8%AF%91"><span class="toc-number">1.</span> <span class="toc-text">分步编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%92%8C%E5%AE%9A%E4%B9%89%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">声明和定义区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%BE%93%E5%87%BA"><span class="toc-number">3.</span> <span class="toc-text">整型变量的定义和输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%92%8C%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E5%9E%8B%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="toc-number">4.</span> <span class="toc-text">有符号和无符号整型取值范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-number">5.</span> <span class="toc-text">类型限定符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E5%92%8Cputchar%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">printf函数和putchar函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scanf%E5%87%BD%E6%95%B0%E4%B8%8Egetchar%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">scanf函数与getchar函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gets"><span class="toc-number"></span> <span class="toc-text">gets()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fgets"><span class="toc-number"></span> <span class="toc-text">fgets()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#puts"><span class="toc-number"></span> <span class="toc-text">puts()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fputs"><span class="toc-number"></span> <span class="toc-text">fputs()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strlen"><span class="toc-number"></span> <span class="toc-text">strlen()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E4%BA%86%E9%81%BF%E5%85%8D%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E8%A2%ABinclude%E5%A4%9A%E6%AC%A1%EF%BC%8CC-x2F-C-%E4%B8%AD%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%B8%80%E7%A7%8D%E6%98%AF-ifndef-%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%B8%80%E7%A7%8D%E6%98%AF-pragma-once-%E6%96%B9%E5%BC%8F%E3%80%82"><span class="toc-number">0.0.1.</span> <span class="toc-text">为了避免同一个文件被include多次，C&#x2F;C++中有两种方式，一种是 #ifndef 方式，一种是 #pragma once 方式。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E6%8C%87%E9%92%88void"><span class="toc-number"></span> <span class="toc-text">万能指针void *</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#const%E4%BF%AE%E9%A5%B0%E7%9A%84%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F"><span class="toc-number"></span> <span class="toc-text">const修饰的指针变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E6%8C%87%E9%92%88"><span class="toc-number"></span> <span class="toc-text">多级指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strstr-p-%E2%80%9Dabcd%E2%80%9D"><span class="toc-number"></span> <span class="toc-text">strstr(p,”abcd”)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strcpy"><span class="toc-number"></span> <span class="toc-text">strcpy()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strncpy"><span class="toc-number"></span> <span class="toc-text">strncpy()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strcat"><span class="toc-number"></span> <span class="toc-text">strcat()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strncat"><span class="toc-number"></span> <span class="toc-text">strncat()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strcmp"><span class="toc-number"></span> <span class="toc-text">strcmp()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strncmp"><span class="toc-number"></span> <span class="toc-text">strncmp()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sprintf"><span class="toc-number"></span> <span class="toc-text">sprintf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sscanf"><span class="toc-number"></span> <span class="toc-text">sscanf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strchr"><span class="toc-number"></span> <span class="toc-text">strchr()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strstr"><span class="toc-number"></span> <span class="toc-text">strstr()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strtok"><span class="toc-number"></span> <span class="toc-text">strtok()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#atoi"><span class="toc-number"></span> <span class="toc-text">atoi()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">内存操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#memset"><span class="toc-number"></span> <span class="toc-text">memset()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memcpy"><span class="toc-number"></span> <span class="toc-text">memcpy()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memmove"><span class="toc-number"></span> <span class="toc-text">memmove()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#memcmp"><span class="toc-number"></span> <span class="toc-text">memcmp()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A0%86%E5%8C%BA%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E9%87%8A%E6%94%BE"><span class="toc-number"></span> <span class="toc-text">堆区内存分配和释放</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-malloc"><span class="toc-number"></span> <span class="toc-text">1)malloc()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-free"><span class="toc-number"></span> <span class="toc-text">2)free()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typedef"><span class="toc-number"></span> <span class="toc-text">typedef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%93%E5%BC%80"><span class="toc-number"></span> <span class="toc-text">文件的打开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%85%B3%E9%97%AD"><span class="toc-number"></span> <span class="toc-text">文件的关闭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E5%AD%97%E7%AC%A6%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6fgetc%E3%80%81fputc"><span class="toc-number"></span> <span class="toc-text">按照字符读写文件fgetc、fputc</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%86%99%E6%96%87%E4%BB%B6"><span class="toc-number">0.1.</span> <span class="toc-text">1）写文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E5%B0%BE"><span class="toc-number">0.2.</span> <span class="toc-text">文件结尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E6%96%87%E4%BB%B6"><span class="toc-number">0.3.</span> <span class="toc-text">读文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E8%A1%8C%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6fgets%E3%80%81fputs"><span class="toc-number"></span> <span class="toc-text">按照行读写文件fgets、fputs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%86%99%E6%96%87%E4%BB%B6-1"><span class="toc-number">0.1.</span> <span class="toc-text">1）写文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E8%AF%BB%E6%96%87%E4%BB%B6"><span class="toc-number">0.2.</span> <span class="toc-text">2）读文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E4%BB%B6fprintf%E3%80%81fscanf"><span class="toc-number"></span> <span class="toc-text">按照格式化文件fprintf、fscanf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%86%99%E6%96%87%E4%BB%B6-2"><span class="toc-number">0.1.</span> <span class="toc-text">1）写文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E8%AF%BB%E6%96%87%E4%BB%B6-1"><span class="toc-number">0.2.</span> <span class="toc-text">2）读文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E5%9D%97%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6fread%E3%80%81fwrite"><span class="toc-number"></span> <span class="toc-text">按照块读写文件fread、fwrite</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%86%99%E6%96%87%E4%BB%B6-3"><span class="toc-number">0.1.</span> <span class="toc-text">1）写文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E8%AF%BB%E6%96%87%E4%BB%B6-2"><span class="toc-number">0.2.</span> <span class="toc-text">2）读文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%86%99"><span class="toc-number"></span> <span class="toc-text">文件的随机读写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number"></span> <span class="toc-text">获取文件状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E3%80%81%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number"></span> <span class="toc-text">删除文件、重命名文件名</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/spring/Spring%E5%AD%A6%E4%B9%A0/" title="Spring初学"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051542577.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring初学"/></a><div class="content"><a class="title" href="/2022/02/28/spring/Spring%E5%AD%A6%E4%B9%A0/" title="Spring初学">Spring初学</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="PE文件结构"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612724.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PE文件结构"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="PE文件结构">PE文件结构</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/" title="ida使用日记"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ida使用日记"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/" title="ida使用日记">ida使用日记</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/" title="WindowsAPI"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612553.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WindowsAPI"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/" title="WindowsAPI">WindowsAPI</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="刷题笔记"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613243.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题笔记"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="刷题笔记">刷题笔记</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613076.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By ZeanHike</div><div class="footer_custom_text">Welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'fe8dfe66cc01b0567d44',
+      clientSecret: 'a3102c039fc46cbe61c4fabd595edc538fffd468',
+      repo: 'carpet',
+      owner: 'lixuyong2014',
+      admin: ['lixuyong2014'],
+      id: '94d0f316ea9b19a8294b6ceb378f0630',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

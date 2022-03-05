@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>ida使用日记 | Welcome</title><meta name="keywords" content="Reverse"><meta name="author" content="ZeanHike"><meta name="copyright" content="ZeanHike"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.CODE XREF:代码交叉引用   DATA XREF:数据交叉引用 XREF分类：CODE XREF:代码交叉引用DATA XREF:数据交叉引用 XREF描述含义： 这是个代码交叉引用sub401000是被引用者，main+2A是引用者（引用sub401000的位置)下箭头表示引用者的地址比sub401000高，你需要向下滚动才能到达引用者地址（main+2A),上行反之~4.每个交叉引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ida使用日记">
+<meta property="og:url" content="http://example.com/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="1.CODE XREF:代码交叉引用   DATA XREF:数据交叉引用 XREF分类：CODE XREF:代码交叉引用DATA XREF:数据交叉引用 XREF描述含义： 这是个代码交叉引用sub401000是被引用者，main+2A是引用者（引用sub401000的位置)下箭头表示引用者的地址比sub401000高，你需要向下滚动才能到达引用者地址（main+2A),上行反之~4.每个交叉引">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg">
+<meta property="article:published_time" content="2022-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-05T08:14:31.719Z">
+<meta property="article:author" content="ZeanHike">
+<meta property="article:tag" content="Reverse">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203010921746.png"><link rel="canonical" href="http://example.com/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ida使用日记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-05 16:14:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202202282243300.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Welcome</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间戳</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ida使用日记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-05T08:14:31.719Z" title="更新于 2022-03-05 16:14:31">2022-03-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ida使用日记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="1-CODE-XREF-代码交叉引用"><a href="#1-CODE-XREF-代码交叉引用" class="headerlink" title="1.CODE XREF:代码交叉引用"></a>1.CODE XREF:代码交叉引用</h3><p>   DATA XREF:数据交叉引用</p>
+<p><strong>XREF分类：</strong><br>CODE XREF:代码交叉引用<br>DATA XREF:数据交叉引用</p>
+<p><strong>XREF描述含义：<img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdn.net/20160127145320795" alt="这里写图片描述"></strong></p>
+<p>这是个代码交叉引用<br>sub401000是被引用者，main+2A是引用者（引用sub401000的位置)<br>下箭头表示引用者的地址比sub401000高，你需要向下滚动才能到达引用者地址（main+2A),上行反之~<br>4.每个交叉引用注释都包含一个单字符后缀（箭头后面），用以说明交叉引用的类型，这里是↓P</p>
+<h3 id="CODE-XREF"><a href="#CODE-XREF" class="headerlink" title="CODE XREF"></a>CODE XREF</h3><p>代码交叉引用用于表示一条指令将控制权转交给另一条指令。在IDA中，指令转交控制权的方式叫做流（flow）<br><strong>IDA中有3种基本流：</strong></p>
+<p>普通流<br>调用流<br>跳转流</p>
+<p>示例代码：</p>
+<p>int read_it;<br>int write_it;<br>int ref_it;<br>void callflow() {} </p>
+<p>int main()<br>{<br>    int *p &#x3D; &amp;ref_it;<br>    *p &#x3D; read_it;<br>    write_it &#x3D; *p;<br>    callflow();<br>    if (read_it &#x3D;&#x3D; 3)<br>    {<br>        write_it &#x3D; 2;<br>    }<br>    else<br>    {<br>        write_it &#x3D; 1;<br>    }<br>    callflow();<br>}<br>示例汇编:</p>
+<p>.text:00401010 ; int __cdecl main(int argc, const char **argv, const char **envp)<br>.text:00401010 _main           proc near               ; CODE XREF: __tmainCRTStartup+10Ap<br>.text:00401010<br>.text:00401010 p               &#x3D; dword ptr -4<br>.text:00401010 argc            &#x3D; dword ptr  8<br>.text:00401010 argv            &#x3D; dword ptr  0Ch<br>.text:00401010 envp            &#x3D; dword ptr  10h<br>.text:00401010<br>.text:00401010                 push    ebp<br>.text:00401011                 mov     ebp, esp<br>.text:00401013                 push    ecx<br>.text:00401014                 mov     [ebp+p], offset int ref_it<br>.text:0040101B                 mov     eax, [ebp+p]<br>.text:0040101E                 mov     ecx, int read_it<br>.text:00401024                 mov     [eax], ecx<br>.text:00401026                 mov     edx, [ebp+p]<br>.text:00401029                 mov     eax, [edx]<br>.text:0040102B                 mov     int write_it, eax<br>.text:00401030                 ③call    callflow(void)<br>.text:00401035                 cmp     int read_it, 3<br>.text:0040103C                 jnz     short loc_40104A<br>.text:0040103E                 mov     int write_it, 2<br>.text:00401048                 jmp     short loc_401054<br>.text:0040104A ; —————————————————————————<br>.text:0040104A<br>.text:0040104A loc_40104A:                             ; CODE XREF: _main+2C↑j<br>.text:0040104A                 mov     int write_it, 1<br>.text:00401054<br>.text:00401054 loc_401054:                             ; CODE XREF: _main+38↑j<br>.text:00401054                 ③call    callflow(void)<br>.text:00401059                 xor     eax, eax<br>.text:0040105B                 mov     esp, ebp<br>.text:0040105D                 pop     ebp<br>.text:0040105E                 retn<br>.text:0040105E _main           endp<br>.text:0040105E</p>
+<p><strong>普通流</strong><br>普通流表示由一条指令到另一条指令的顺序流。这是所有非分支指令（如ADD）的默认执行流。</p>
+<p><strong>调用流</strong><br>如果IDA认为某个函数并不返回（在分析阶段确定,注意不是运行阶段），那么，在调用该函数时，它就不会为该函数分配普通流</p>
+<p>.text:00401030                 ③call    callflow(void)<br>.text:00401054                 ③call    callflow(void)<br>1<br>2<br>指令用于调用函数，如③处的 call指令，它分配到一个调用流（call flow），表示控制权被转交给目标函数<br>callflow函数的反汇编：</p>
+<p>.text:00401000 void __cdecl callflow(void) proc near   ; ①CODE XREF: _main+20↓p<br>.text:00401000                                         ; ①_main:loc_401054↓p<br>.text:00401000                 push    ebp<br>.text:00401001                 mov     ebp, esp<br>.text:00401003                 pop     ebp<br>.text:00401004                 retn<br>.text:00401004 void __cdecl callflow(void) endp</p>
+<p>callflow所在的位置显示了两个交叉引用(①处)，表示这个函数被调用了两次</p>
+<p>由函数调用导致的交叉引用使用后缀↓p（看做是Procedure）。</p>
+<p><strong>跳转流</strong><br>每个无条件分支指令和条件分支指令将分配到一个跳转流（jump flow）</p>
+<p>.text:00401048                 jmp     short loc_401054<br>.text:0040104A ; —————————————————————————<br>.text:0040104A</p>
+<p>无条件分支并没有相关的普通流，因为它总会进入分支。上处的虚线表示相邻的两条指令之间并不存在普通流（也就是00401048后没有跟着顺序执行的指令）</p>
+<p>跳转交叉引用使用后缀↑j（看做是Jump）。</p>
+<h4 id="DATA-XREF"><a href="#DATA-XREF" class="headerlink" title="DATA XREF"></a>DATA XREF</h4><p>数据交叉引用用于跟踪二进制文件访问数据的方式。数据交叉引用与IDA数据库中任何牵涉到虚拟地址的字节有关（换言之，数据交叉引用与栈变量毫无关系）<br>最常用的3种数据交叉引用:</p>
+<p>address何时被读取(读取交叉引用)<br>address何时被写入(写入交叉引用)<br>address何时被引用(偏移量交叉引用)</p>
+<p>.data:00403378 int ref_it      db    ? ;               ; DATA XREF: _main+4↑o<br>.data:00403379                 db    ? ;<br>.data:0040337A                 db    ? ;<br>.data:0040337B                 db    ? ;<br>.data:0040337C int write_it    dd ?                    ; DATA XREF: _main+1B↑w<br>.data:0040337C                                         ; _main+2E↑w …<br>.data:00403380 int read_it     dd ?                    ; DATA XREF: _main+E↑r<br>.data:00403380                                         ; _main+25↑r</p>
+<p><strong>读取交叉引用</strong><br>读取交叉引用（read cross-reference）表示访问的是某个内存位置的内容<br>可以看到read_it在_main+E处、_main+25被读取,如下</p>
+<p>.text:0040101E                 mov     ecx, int read_it<br>.text:00401035                 cmp     int read_it, 3</p>
+<p>读取交叉引用使用后缀↑r（看做是Read）。</p>
+<p><strong>写入交叉引用</strong><br>写入交叉引用指出了修改变量内容的程序位置<br>可以看到write_it在_main+1B、_main+2E处被写入，如下</p>
+<p>.text:0040102B                 mov     int write_it, eax<br>.text:0040103E                 mov     int write_it, 2</p>
+<p>写入交叉引用使用后缀↑w（看做是Write）。</p>
+<p><strong>偏移量交叉引用</strong><br>偏移量交叉引用表示引用的是某个位置的地址（而非内容）<br>可以看到ref_it在_main+4处被引用</p>
+<p>.text:00401014                 mov     [ebp+p], offset int ref_it</p>
+<p>偏移量交叉引用使用后缀↑o（看做是Offset）。</p>
+<p>与仅源自于指令位置的读取和写入交叉引用不同，偏移量交叉引用可能源于指令位置或数据位置，例如虚表<br>回溯偏移量交叉引用是一种有用的技术，可迅速在程序的数据部分定位C++虚表。</p>
+<h3 id="使用快捷键"><a href="#使用快捷键" class="headerlink" title="使用快捷键"></a>使用快捷键</h3><ul>
+<li>;表示添加注释</li>
+<li>空格键将反汇编代码转换为流程图</li>
+<li>交叉引用部分的···表明有多个交叉引用，Ctrl+X组合键即可查看所有的交叉引用</li>
+<li>重命名函数的快捷键是N</li>
+<li>定义函数，选中对应行后，按P键</li>
+<li>在函数窗口中选中并按Ctrl+E组合键，或在反汇编窗口的函数内部按Alt+P组合键</li>
+<li>反汇编窗口中选中变量、函数后按Y键，弹出对话框，从中输入正确的C语言类型，IDA就可以解析并自动应用这个类型</li>
+<li>Alt+F7执行python文件，Shift+F2，获得简易编辑器</li>
+<li>Shift+F12打开Strings窗口</li>
+<li>按F2可对十六进制窗口中的数据进行修改，再按一次保存。</li>
+</ul>
+<p><strong>另外下面快捷键需要让光标在对应行上才能生效</strong></p>
+<ul>
+<li>U键：取消一个地方已有的数据类型定义，此时会弹出确认的对话框</li>
+<li>D键：让某一个位置变成数据</li>
+<li>C键：让某一个位置变成指令</li>
+<li>A键：会以该位置为起点定义一个以”\0”结尾的字符串类型</li>
+<li>*键：将此处定义为一个数组，此时弹出一个对话框，用来设置数组的属性</li>
+<li>O键：将此处定义为一个地址偏移</li>
+</ul>
+<h3 id="根据地址的颜色分辨某个位置的数据类型"><a href="#根据地址的颜色分辨某个位置的数据类型" class="headerlink" title="根据地址的颜色分辨某个位置的数据类型"></a>根据地址的颜色分辨某个位置的数据类型</h3><ul>
+<li>被标注为代码的位置，其地址将会是黑色显示的</li>
+<li>被标注为数据的位置，其地址将会是灰色显示的</li>
+<li>未定义数据类型的位置则会显示为黄色</li>
+</ul>
+<ol>
+<li>byte，1字节整形，对应char、__int8</li>
+<li>word，2字节整形，对应short、__int16</li>
+<li>dword，4字节整形，对应int、__int32</li>
+<li>qword，8字节整形，对应__int64、long long</li>
+</ol>
+<h3 id="FLIRT函数签名识别库"><a href="#FLIRT函数签名识别库" class="headerlink" title="FLIRT函数签名识别库"></a>FLIRT函数签名识别库</h3><p>shift+F5，打开Signature列表，其中会显示已经应用的函数签名库。<br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203041335656.png" alt="image-20211125234213921"></p>
+<p>按insert，新增需要匹配的函数签名库</p>
+<p><strong>如果没有匹配的签名库，则可以在网上查找相应的签名库，如：<a target="_blank" rel="noopener" href="https://github.com/push0ebp/sig-database">https://github.com/push0ebp/sig-database</a> 和 <a target="_blank" rel="noopener" href="https://github.com/Maktm/FLIRTDB%E7%AD%89">https://github.com/Maktm/FLIRTDB等</a></strong></p>
+<h3 id="call-analysis-failed"><a href="#call-analysis-failed" class="headerlink" title="call analysis failed"></a>call analysis failed</h3><p>函数调用约定出错</p>
+<h3 id="sp-analysis-failed"><a href="#sp-analysis-failed" class="headerlink" title="sp-analysis failed"></a>sp-analysis failed</h3><p>调用约定或者参数个数出错<br>解决办法：Options -》General ，弹出的对话框勾选“Stack pointer”</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">ZeanHike</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/">http://example.com/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Welcome</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Reverse/">Reverse</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"><img class="prev-cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612724.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">PE文件结构</div></div></a></div><div class="next-post pull-right"><a href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/"><img class="next-cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612553.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">WindowsAPI</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="PE文件结构"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612724.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">PE文件结构</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/" title="WindowsAPI"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612553.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">WindowsAPI</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="刷题笔记"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613243.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">刷题笔记</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/%E5%8F%8D%E6%B1%87%E7%BC%96C%E8%AF%AD%E8%A8%80/" title="反汇编C语言"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613360.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">反汇编C语言</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" title="汇编语言"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613154.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">汇编语言</div></div></a></div><div><a href="/2022/02/28/%E9%80%86%E5%90%91/windows%E5%BC%80%E5%8F%91/c++/" title="C++"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613448.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">C++</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202202282243300.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ZeanHike</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lixuyong2014"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lixuyong2014" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:774781684@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/175939686" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://bbs.pediy.com/user-home-939008.htm" target="_blank" title="看雪"><i class="fa-regular fa-snowflake"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=MQJXLBM5gbBl9bEeJNpmTMs4lG46qO3N&amp;noverify=0" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">时不时更新，尽量一天一篇</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CODE-XREF-%E4%BB%A3%E7%A0%81%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1.CODE XREF:代码交叉引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CODE-XREF"><span class="toc-number">2.</span> <span class="toc-text">CODE XREF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DATA-XREF"><span class="toc-number">2.1.</span> <span class="toc-text">DATA XREF</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">3.</span> <span class="toc-text">使用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%9C%B0%E5%9D%80%E7%9A%84%E9%A2%9C%E8%89%B2%E5%88%86%E8%BE%A8%E6%9F%90%E4%B8%AA%E4%BD%8D%E7%BD%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">根据地址的颜色分辨某个位置的数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FLIRT%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D%E8%AF%86%E5%88%AB%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">FLIRT函数签名识别库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#call-analysis-failed"><span class="toc-number">6.</span> <span class="toc-text">call analysis failed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sp-analysis-failed"><span class="toc-number">7.</span> <span class="toc-text">sp-analysis failed</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/spring/Spring%E5%AD%A6%E4%B9%A0/" title="Spring初学"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051542577.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring初学"/></a><div class="content"><a class="title" href="/2022/02/28/spring/Spring%E5%AD%A6%E4%B9%A0/" title="Spring初学">Spring初学</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="PE文件结构"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612724.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PE文件结构"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="PE文件结构">PE文件结构</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/" title="ida使用日记"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ida使用日记"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/ida%E4%BD%BF%E7%94%A8%E6%97%A5%E8%AE%B0/" title="ida使用日记">ida使用日记</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/" title="WindowsAPI"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612553.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WindowsAPI"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/WindowsAPI%20/" title="WindowsAPI">WindowsAPI</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/28/%E9%80%86%E5%90%91/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="刷题笔记"><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051613243.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="刷题笔记"/></a><div class="content"><a class="title" href="/2022/02/28/%E9%80%86%E5%90%91/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="刷题笔记">刷题笔记</a><time datetime="2022-02-27T16:00:00.000Z" title="发表于 2022-02-28 00:00:00">2022-02-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203051612491.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By ZeanHike</div><div class="footer_custom_text">Welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'fe8dfe66cc01b0567d44',
+      clientSecret: 'a3102c039fc46cbe61c4fabd595edc538fffd468',
+      repo: 'carpet',
+      owner: 'lixuyong2014',
+      admin: ['lixuyong2014'],
+      id: '92da223bc701389c7eb4b0894f979681',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
