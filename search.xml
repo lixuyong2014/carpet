@@ -268,6 +268,25 @@
     </entry>
     
     
+    
+    <entry>
+      <title>javaEE基础知识</title>
+      <link href="/2022/02/28/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/javaEE%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+      <url>/2022/02/28/java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/javaEE%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h3><p>JDBC(Java DataBase Connectivity，java数据库连接)</p><p>JNDI(Java Name and Directory Interface，java命名和目录接口)：是Java应用程序提供命名服务的应用程序接口,为我们提供了查找和访问各种命名和目录服务的通用统一的接口.通过JNDI统一接口我们可以来访问各种不同类型的服务。<img src="https://cdn.jsdelivr.net/gh/lixuyong2014/picture/img/202203052117956.png" alt="img"></p><p>EJB(Enterprise JavaBean，企业级JavaBean)：就是把你编写的软件中那些需要执行指定任务的类，不放到客户端软件上了，而是给他打成包放到一个服务器上了，客户端请求这个类，服务器返回给客户端使用。EJB 是运行在独立服务器上的组件，客户端是通过网络对EJB 对象进行调用的。在Java中，能够实现远程对象调用的技术是RMI，而EJB 技术基础正是RMI。通过RMI 技术，J2EE<strong>将EJB 组件创建为远程对象</strong>，客户端就可以通过网络调用EJB 对象了。</p><p>RMI(Remote Method Invocation，远程方法调用)：就是利用Java 对象序列化的机制实现分布式计算，实现远程类对象的实例化以及调用的方法。说的更清楚些，就是利用对象序列化来实现远程调用，利用这个方法来调用远程的类的时候，就不需要编写Socket 程序了，也不需要把对象进行序列化操作，直接调用就行了非常方便。</p><p>JMS(Java Message Service，java消息服务)：是一个java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间或分布式系统中发送消息，进而异步通信。  应用程序A与应用程序B通过使用MOM的应用程序编程接口（API）发送消息进行通信。MOM 将消息路由给应用程序B，这样消息就可以存在于MOM中，MOM 负责处理网络通信。如果网络连接不可用，MOM会存储消息，直到连接变得可用时，再将消息转发给应用程序B。当应用程序A发送其消息时，应用程序B甚至可以不处于执行状态。MOM将保留这个消息，直到应用程序B开始执行并试着检索消息为止。这还防止了应用程序A因为等待应用程序B检索消息而出现阻塞。JMS是一系列的接口及相关语义的集合，通过这些接口和和其中的方法，JMS客户端如何去访问消息系统，完成创建、发送、接收和读取企业消息系统中消息。在JMS之前，每一家MOM厂商都用专有API为应用程序提供对其产品的访问，通常可用于许多种语言，其中包括Java语言。JMS通过MOM为Java程序提供了一个发送和接收消息的标准的、便利的方法。用JMS编写的程序可以在任何实现JMS标准的MOM上运行。<br>      JMS可移植性的关键在于：JMS API是由Sun作为一组接口而提供的。提供了JMS功能的产品是通过提供一个实现这些接口的提供者来做到这一点的。开发人员可以通过定义一组消息和一组交换这些消息的应用程序，建立JMS应用程序，实现异步通讯。</p><h3 id="JavaEE分层模型"><a href="#JavaEE分层模型" class="headerlink" title="JavaEE分层模型"></a>JavaEE分层模型</h3><p>Domain实体层：每一个类代表数据库的一张表，而类的属性代表了数据库的每一列</p><p>DAO（Data Access Object，数据访问对象）层：跟数据库打交道的</p><p>Service业务层：负责调用DAO层的方法，实现业务逻辑</p><p>Controller控制层：负责处理请求，返回响应</p><p>View表现层：属于前端页面部分，处理响应数据，展示页面</p><h3 id="Java框架"><a href="#Java框架" class="headerlink" title="Java框架"></a>Java框架</h3><table><thead><tr><th align="center"></th><th align="center"></th><th></th></tr></thead><tbody><tr><td align="center">Struts1</td><td align="center">JSF</td><td></td></tr><tr><td align="center">Struts2</td><td align="center">Tapestry</td><td></td></tr><tr><td align="center">SpringMVC</td><td align="center"></td><td></td></tr></tbody></table><h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><ol><li><p><strong>获取类对象</strong></p><p>类对象，就是一个类的Class对象</p><ol><li>Class.forName(“com.example.User”)：将类对象加载进内存，并执行该类对象的静态代码块，对类进行初始化</li><li>User.class</li><li>user.getClass()：必须先创建该类的对象，才能使用getClass()</li><li>ClassLoader.getSystemClassLoader().loadClass(“com.example.User”)：不执行该类对象的静态代码块，不会对类进行初始化</li></ol></li><li><p><strong>获取类方法</strong></p><ol><li>getDeclaredMethods：返回所有方法（public，protected，private，default），除了继承的方法</li><li>getMethods：返回所有public的方法，包括了从父类继承的方法</li><li>getDeclaredMethod：和第一个一样，该方法第一个参数为要获取的方法的方法名，第二个参数为要获取的方法的参数</li><li>getMethod：同2，该方法第一个参数为要获取的方法的方法名，第二个参数为要获取的方法的参数</li></ol></li><li><p><strong>获取类成员变量</strong></p><ol><li>getDeclaredFields：获取类的所有成员变量（public，protected，private，default），除了父类的声明字段</li><li>getFields：获取所有public访问权限的属性，包括了父类的public字段</li><li>getDeclaredField：第一个参数为要获取的成员变量的名称</li><li>getField：第一个参数为要获取的成员变量的名称</li></ol></li></ol><h3 id="ClassLoader类加载机制"><a href="#ClassLoader类加载机制" class="headerlink" title="ClassLoader类加载机制"></a>ClassLoader类加载机制</h3><p>在程序运行时，并不会一次性加载所有的class文件进入内存，而是通过Java的类加载机制进行动态加载，从而转换为java.lang.Class类的一个实例</p><p>ClassLoader是一个抽象类，主要功能是通过指定的类名，找到或生成对应类的字节码，返回一个java.lang.Class类的实例</p><p><strong>ClassLoader类中的方法</strong></p><table><thead><tr><th align="center">方法</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">getParent()</td><td align="center">返回父类加载器</td></tr><tr><td align="center">loadClass(String name)</td><td align="center">加载类，返回的结果为java.lang.Class类的实例</td></tr><tr><td align="center">findClass(String name)</td><td align="center">查找类，返回的结果为java.lang.Class类的实例</td></tr><tr><td align="center">findLoadedClass(String name)</td><td align="center">查找已经被加载过的类，返回的结果为java.lang.Class类的实例</td></tr><tr><td align="center">defineClass(String name,byte[] b,int off,int len)</td><td align="center">把字节数组b中的内容转换为Java类，返回的结果为java.lang.Class类的实例，该方法为final</td></tr><tr><td align="center">resolveClass(Class&lt;?&gt; c)</td><td align="center">链接指定的Java类</td></tr></tbody></table><h3 id="URLClassLoader"><a href="#URLClassLoader" class="headerlink" title="URLClassLoader"></a>URLClassLoader</h3><p>URLClassLoader类是ClassLoader的一个实现，拥有从远程服务器上加载类的能力。通过URLClassLoader可以实现对一些WebShell的远程加载，对某个漏洞的深入利用。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java代码审计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
